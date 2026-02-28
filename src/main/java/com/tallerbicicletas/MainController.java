@@ -192,9 +192,147 @@ public class MainController {
     }
     @FXML
     public void mostrarRegistrarBicicleta() {
-    }
 
+        VBox vista = new VBox(10);
+        vista.setStyle("-fx-padding: 20;");
+
+        TextField txtColor = new TextField();
+        txtColor.setPromptText("Color");
+
+        TextField txtMarca = new TextField();
+        txtMarca.setPromptText("Marca");
+
+        TextField txtSerie = new TextField();
+        txtSerie.setPromptText("Número de Serie");
+
+        TextField txtAnio = new TextField();
+        txtAnio.setPromptText("Año");
+
+        TextField txtIdCliente = new TextField();
+        txtIdCliente.setPromptText("ID Cliente");
+
+        ComboBox<com.tallerbicicletas.model.TipoBicicleta> comboTipo =
+                new ComboBox<>();
+        comboTipo.getItems().addAll(
+                com.tallerbicicletas.model.TipoBicicleta.values()
+        );
+
+        Button btnGuardar = new Button("Guardar");
+
+        btnGuardar.setOnAction(e -> {
+
+            com.tallerbicicletas.model.Persona persona =
+                    taller.buscarCliente(txtIdCliente.getText());
+
+            if (persona instanceof com.tallerbicicletas.model.Cliente cliente) {
+
+                taller.registrarBicicletas(
+                        txtColor.getText(),
+                        txtMarca.getText(),
+                        txtSerie.getText(),
+                        comboTipo.getValue(),
+                        Integer.parseInt(txtAnio.getText()),
+                        taller,
+                        cliente
+                );
+
+                limpiar(contenidoCentral);
+            } else {
+                System.out.println("Cliente no encontrado.");
+            }
+        });
+
+        vista.getChildren().addAll(
+                new Label("Registrar Bicicleta"),
+                txtColor,
+                txtMarca,
+                txtSerie,
+                txtAnio,
+                txtIdCliente,
+                comboTipo,
+                btnGuardar
+        );
+
+        contenidoCentral.getChildren().setAll(vista);
+    }
     @FXML
     public void mostrarNuevaOrden() {
+
+        VBox vista = new VBox(10);
+        vista.setStyle("-fx-padding: 20;");
+
+        TextField txtRegistro = new TextField();
+        txtRegistro.setPromptText("Número de Registro");
+
+        DatePicker datePicker = new DatePicker();
+
+        TextField txtHora = new TextField();
+        txtHora.setPromptText("Hora");
+
+        TextField txtMotivo = new TextField();
+        txtMotivo.setPromptText("Motivo");
+
+        TextField txtDiagnostico = new TextField();
+        txtDiagnostico.setPromptText("Diagnóstico");
+
+        TextField txtTrabajo = new TextField();
+        txtTrabajo.setPromptText("Trabajo realizado");
+
+        TextField txtCosto = new TextField();
+        txtCosto.setPromptText("Costo");
+
+        TextField txtIdMecanico = new TextField();
+        txtIdMecanico.setPromptText("ID Mecánico");
+
+        TextField txtSerialBici = new TextField();
+        txtSerialBici.setPromptText("Serial Bicicleta");
+
+        Button btnGuardar = new Button("Crear Orden");
+
+        btnGuardar.setOnAction(e -> {
+
+            com.tallerbicicletas.model.Persona persona =
+                    taller.buscarMecanico(txtIdMecanico.getText());
+
+            com.tallerbicicletas.model.Bicicleta bici =
+                    taller.buscarBicicleta(txtSerialBici.getText());
+
+            if (persona instanceof com.tallerbicicletas.model.Mecanico mecanico
+                    && bici != null) {
+
+                taller.registrarOrdenServicio(
+                        txtRegistro.getText(),
+                        datePicker.getValue(),
+                        txtHora.getText(),
+                        txtMotivo.getText(),
+                        txtDiagnostico.getText(),
+                        txtTrabajo.getText(),
+                        Double.parseDouble(txtCosto.getText()),
+                        mecanico,
+                        taller,
+                        bici
+                );
+
+                limpiar(contenidoCentral);
+            } else {
+                System.out.println("Mecánico o bicicleta no encontrados.");
+            }
+        });
+
+        vista.getChildren().addAll(
+                new Label("Nueva Orden de Servicio"),
+                txtRegistro,
+                datePicker,
+                txtHora,
+                txtMotivo,
+                txtDiagnostico,
+                txtTrabajo,
+                txtCosto,
+                txtIdMecanico,
+                txtSerialBici,
+                btnGuardar
+        );
+
+        contenidoCentral.getChildren().setAll(vista);
     }
 }
