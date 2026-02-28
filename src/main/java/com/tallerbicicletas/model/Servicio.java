@@ -1,6 +1,8 @@
 package com.tallerbicicletas.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Servicio {
     private String numeroRegistro;
@@ -13,7 +15,6 @@ public class Servicio {
     private Mecanico mecanico;
     private Taller OwnedByTaller;
     private Bicicleta bicicleta;
-    private String repuestosUsados;
 
     public Servicio(String numeroRegistro,LocalDate fecha, String hora, String motivo, String diagnostico, String trabajo, double costo, Mecanico mecanico, Taller ownedByTaller, Bicicleta bicicleta) {
         this.numeroRegistro=numeroRegistro;
