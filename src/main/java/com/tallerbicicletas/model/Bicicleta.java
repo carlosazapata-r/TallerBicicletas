@@ -7,17 +7,17 @@ public class Bicicleta {
 
     private String color;
     private String marca;
-    private String nombreSerie;
+    private String numeroSerie;
     private TipoBicicleta tipo;
     private List<Servicio> listaServicios;
-    private String año;
+    private int año;
     private Taller taller;
     private Cliente cliente;
 
-    public Bicicleta(String color, String marca, String nombreSerie, TipoBicicleta tipo,String año,Taller taller,Cliente cliente) {
+    public Bicicleta(String color, String marca, String numeroSerie, TipoBicicleta tipo,int año,Taller taller,Cliente cliente) {
         this.color = color;
         this.marca = marca;
-        this.nombreSerie = nombreSerie;
+        this.numeroSerie = numeroSerie;
         this.tipo = tipo;
         this.listaServicios = new ArrayList<>();
         this.año = año;
@@ -25,8 +25,8 @@ public class Bicicleta {
         this.taller = taller;
     }
 
-    public String getNombreSerie() {
-        return nombreSerie;
+    public String getNumeroSerie() {
+        return numeroSerie;
     }
 
     public void agregarServicio(Servicio servicio) {
