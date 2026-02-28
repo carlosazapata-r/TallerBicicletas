@@ -7,7 +7,7 @@ public class Cliente extends Persona {
 
     private String direccion;
     private String telefono;
-    List<Bicicleta> listaBicicletas;
+    private List<Bicicleta> listaBicicletas;
 
     public Cliente(int id, String nombre, String direccion, String telefono) {
         super(id, nombre);
