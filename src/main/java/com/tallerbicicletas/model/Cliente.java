@@ -9,8 +9,8 @@ public class Cliente extends Persona {
     private String telefono;
     private List<Bicicleta> listaBicicletas;
 
-    public Cliente(int id, String nombre, String direccion, String telefono) {
-        super(id, nombre);
+    public Cliente(int id, String nombre,Taller taller, String direccion, String telefono) {
+        super(id, nombre,taller);
         this.direccion = direccion;
         this.telefono = telefono;
         this.listaBicicletas = new ArrayList<>();
