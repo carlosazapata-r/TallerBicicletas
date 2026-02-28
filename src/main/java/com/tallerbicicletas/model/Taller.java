@@ -85,13 +85,13 @@ public class Taller {
         }
         return null;
     }
-    public void registrarMecanico(String id, String nombre, Taller taller,TipoReparacion tipoReparacion){
+    public void registrarMecanico(String id, String nombre, Taller taller,TipoEspecialidad tipoEspecialidad){
         if(buscarMecanico(id)==null){
             Mecanico nuevoMecanico = new Mecanico(
                     id,
                     nombre,
                     this,
-                    tipoReparacion
+                    tipoEspecialidad
             );
 
             listaPersonas.add(nuevoMecanico);

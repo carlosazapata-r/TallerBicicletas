@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Mecanico extends Persona {
     private List<Servicio> listaServicios;
-    private TipoReparacion tipoReparacion;
+    private TipoEspecialidad tipoEspecialidad;
 
-    public Mecanico(String id, String nombre,Taller taller,TipoReparacion tipoReparacion) {
+    public Mecanico(String id, String nombre,Taller taller,TipoEspecialidad tipoEspecialidad) {
         super(id, nombre,taller);
         this.listaServicios=new ArrayList<>();
-        this.tipoReparacion = tipoReparacion;
+        this.tipoEspecialidad = tipoEspecialidad;
     }
 }
