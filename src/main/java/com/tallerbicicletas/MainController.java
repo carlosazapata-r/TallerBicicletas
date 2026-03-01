@@ -10,12 +10,14 @@ public class MainController {
 
     @FXML
     private StackPane contenidoCentral;
+    @FXML
+    private VBox menuLateral;
 
     private Taller taller = new Taller(1, "Taller Central", "123456");
 
-    // ==========================
-    // REGISTRAR CLIENTE
-    // ==========================
+    //
+    // Registrar cliente
+    //
     public void mostrarRegistrarCliente() {
 
         VBox vista = new VBox(10);
@@ -57,9 +59,9 @@ public class MainController {
         contenidoCentral.getChildren().setAll(vista);
     }
 
-    // ==========================
-    // REGISTRAR MECANICO
-    // ==========================
+    //
+    // Registrar mecanico
+    //
     public void mostrarRegistrarMecanico() {
 
         VBox vista = new VBox(10);
@@ -98,9 +100,9 @@ public class MainController {
         contenidoCentral.getChildren().setAll(vista);
     }
 
-    // ==========================
-    // HISTORIAL POR BICICLETA
-    // ==========================
+    //
+    // Historial por bicicleta
+    //
     public void mostrarHistorial() {
 
         VBox vista = new VBox(10);
@@ -147,9 +149,9 @@ public class MainController {
         contenidoCentral.getChildren().setAll(vista);
     }
 
-    // ==========================
-    // ORDENES POR FECHA
-    // ==========================
+    //
+    // Ordenes por fecha
+    //
     public void mostrarOrdenesFecha() {
 
         VBox vista = new VBox(10);
@@ -332,6 +334,38 @@ public class MainController {
                 txtSerialBici,
                 btnGuardar
         );
+
+        contenidoCentral.getChildren().setAll(vista);
+    }
+
+    @FXML
+    public void initialize() {
+
+        // Ocultar el menú lateral al iniciar
+        menuLateral.setVisible(false);
+        menuLateral.setManaged(false);
+
+        VBox vista = new VBox(20);
+        vista.setStyle("-fx-alignment: center; -fx-padding: 40;");
+
+        Label titulo = new Label("Bienvenido al Taller de Bicicletas");
+        titulo.setStyle("-fx-font-size: 22; -fx-font-weight: bold;");
+
+        Label subtitulo = new Label("Sistema de gestión");
+
+        Button btnEntrar = new Button("Ingresar");
+
+        btnEntrar.setOnAction(e -> {
+
+            // Limpiar el centro
+            contenidoCentral.getChildren().clear();
+
+            // Mostrar el menú lateral
+            menuLateral.setVisible(true);
+            menuLateral.setManaged(true);
+        });
+
+        vista.getChildren().addAll(titulo, subtitulo, btnEntrar);
 
         contenidoCentral.getChildren().setAll(vista);
     }
