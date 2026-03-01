@@ -1,6 +1,6 @@
 package com.tallerbicicletas.model;
 
-public enum TipoReparacion {
+public enum TipoEspecialidad {
     FRENOS,
     TRANSMISION,
     SUSPENSION,
