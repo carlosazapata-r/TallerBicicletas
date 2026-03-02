@@ -22,6 +22,11 @@ public class Taller {
         this.listaPersonas = new ArrayList<>();
         this.listaServicios = new ArrayList<>();
     }
+    /**
+     * Metodo para buscar si ya hay un cliente registrado
+     * @param id
+     * @return
+     */
     public Persona buscarCliente(String id){
         for (Persona p : listaPersonas) {
             if (p instanceof Cliente && p.getId().equals(id)) {
@@ -30,7 +35,13 @@ public class Taller {
         }
         return null;
     }
-
+    /**
+     * Metodo para registrar a un cliente
+     * @param nombre
+     * @param id
+     * @param direccion
+     * @param tel
+     */
     public void registrarCliente(String nombre,String id,String direccion,String tel){
         if(buscarCliente(id)==null){
             Cliente nuevoCliente = new Cliente(
@@ -48,6 +59,11 @@ public class Taller {
             System.out.println("Cliente ya esta registrado");
         }
     }
+    /**
+     * Metodo para buscar si una bicicleta ya esta registrada
+     * @param numeroSerie
+     * @return
+     */
     public Bicicleta buscarBicicleta(String numeroSerie){
         for (Bicicleta p : listaBicicletas) {
             if (p.getNumeroSerie().equals(numeroSerie)) {
@@ -56,6 +72,16 @@ public class Taller {
         }
         return null;
     }
+    /**
+     * Metodo para registrar a una bicicleta
+     * @param color
+     * @param marca
+     * @param numeroSerie
+     * @param tipo
+     * @param año
+     * @param taller
+     * @param cliente
+     */
     public void registrarBicicletas(String color, String marca, String numeroSerie, TipoBicicleta tipo,int año,Taller taller,Cliente cliente){
         if(buscarBicicleta(numeroSerie)==null){
             Bicicleta nuevaBicicleta = new Bicicleta(
@@ -76,7 +102,11 @@ public class Taller {
             System.out.println("La bicicleta ya esta registrada");
         }
     }
-
+    /**
+     * Metodo para buscar si un mecanico ya esta registrado
+     * @param id
+     * @return
+     */
     public Persona buscarMecanico(String id){
         for (Persona p : listaPersonas) {
             if (p instanceof Mecanico && p.getId().equals(id)) {
@@ -85,6 +115,13 @@ public class Taller {
         }
         return null;
     }
+    /**
+     * Metodo para registrar un mecanico al sistema
+     * @param id
+     * @param nombre
+     * @param taller
+     * @param tipoEspecialidad
+     */
     public void registrarMecanico(String id, String nombre, Taller taller,TipoEspecialidad tipoEspecialidad){
         if(buscarMecanico(id)==null){
             Mecanico nuevoMecanico = new Mecanico(
@@ -101,6 +138,11 @@ public class Taller {
             System.out.println("Mecanico ya esta registrado");
         }
     }
+    /**
+     * Metodo para buscar si ya esta registrado un servicio
+     * @param numeroRegistro
+     * @return
+     */
     public Servicio buscarOrdenServicio(String numeroRegistro){
         for (Servicio s : listaServicios) {
             if (s.getNumeroRegistro().equals(numeroRegistro)) {
@@ -109,6 +151,19 @@ public class Taller {
         }
         return null;
     }
+    /**
+     * Metodo para registrar orden de servicio
+     * @param numeroRegistro
+     * @param fecha
+     * @param hora
+     * @param motivo
+     * @param diagnostico
+     * @param trabajo
+     * @param costo
+     * @param mecanico
+     * @param ownedByTaller
+     * @param bicicleta
+     */
     public void registrarOrdenServicio(String numeroRegistro, LocalDate fecha, String hora, String motivo, String diagnostico, String trabajo, double costo, Mecanico mecanico, Taller ownedByTaller, Bicicleta bicicleta){
         if(buscarOrdenServicio(numeroRegistro)==null){
             Servicio nuevoServicio = new Servicio(
@@ -131,6 +186,11 @@ public class Taller {
             System.out.println("El servicio ya esta registrado.");
         }
     }
+    /**
+     * Metodo para obtener los servicios registrados en un fecha en especifico
+     * @param fecha
+     * @return
+     */
 
     public List<Servicio> obtenerOrdenFecha(LocalDate fecha){
         List<Servicio> listaFecha= new ArrayList();
@@ -141,6 +201,11 @@ public class Taller {
         }
         return listaFecha;
     }
+    /**
+     * Metodo para obtener el historial del servicio de una bicicleta
+     * @param numeroSerie
+     * @return
+     */
 
     public List<Servicio> obtenerHistorialBicicleta(String numeroSerie){
         Bicicleta bici = buscarBicicleta(numeroSerie);

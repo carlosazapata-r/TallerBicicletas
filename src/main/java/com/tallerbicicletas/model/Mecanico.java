@@ -14,9 +14,18 @@ public class Mecanico extends Persona {
         this.tipoEspecialidad = tipoEspecialidad;
         this.ocupado = false;
     }
+    /**
+     * Metodo para mirar si el mecanico esta disponible
+     * @return
+     */
     public boolean estaDisponible(){
         return !ocupado;
     }
+    /**
+     * Metodo para cambiar el estado del mecanico a disponible o ocupado
+     * @param estado
+     * @return
+     */
     public void cambiarEstado(boolean estado){
         this.ocupado = estado;
     }

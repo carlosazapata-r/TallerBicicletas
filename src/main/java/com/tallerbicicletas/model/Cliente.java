@@ -15,6 +15,11 @@ public class Cliente extends Persona {
         this.telefono = telefono;
         this.listaBicicletas = new ArrayList<>();
     }
+    /**
+     * Metodo para asociar un cliente con una bicicleta
+     * @param bicicleta
+     * @return
+     */
     public void agregarBicicleta(Bicicleta bicicleta){
         if(bicicleta != null){
             listaBicicletas.add(bicicleta);

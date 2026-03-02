@@ -24,16 +24,25 @@ public class Bicicleta {
         this.cliente= cliente;
         this.taller = taller;
     }
+    
 
     public String getNumeroSerie() {
         return numeroSerie;
     }
-
+    /**
+     * Metodo para asociar un servicio con una bicicleta
+     * @param servicio
+     * @return
+     */
     public void agregarServicio(Servicio servicio) {
         if(servicio != null){
             listaServicios.add(servicio);
         }
     }
+    /**
+     * Metodo para obtener el historial de servicios de una bicicleta
+     * @return
+     */
     public List<Servicio> obtenerHistorialServicios(){
         return listaServicios;
     }
