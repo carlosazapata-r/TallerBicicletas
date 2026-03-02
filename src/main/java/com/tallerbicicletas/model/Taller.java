@@ -183,7 +183,7 @@ public class Taller {
             bicicleta.agregarServicio(nuevoServicio);
             System.out.println("El servicio fue registrado correctamente.");
         }else{
-            System.out.println("El servicio ya esta registrado.");
+            System.out.println("El servicio ya esta registrado o el mecanico no esta disponible.");
         }
     }
     /**

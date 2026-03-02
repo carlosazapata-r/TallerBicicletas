@@ -6,6 +6,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.*;
 
+import javax.swing.*;
+
 public class MainController {
 
     @FXML
